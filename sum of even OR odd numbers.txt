@@ -1,0 +1,50 @@
+//sum of even numbers//
+
+MOV SI, 2000H
+MOV CX, 1000H
+MOV DI, 4000H
+MOV BL, 0000H
+L2:
+    MOV AL, [SI]
+    TEST AL, 1
+    JZ L3
+    JMP L4
+
+L3:
+    MOV [DI], AL
+    INC DI
+    ADD BL,AL
+L4:
+    INC SI
+    DEC CL
+    JNZ L2
+    MOV [5000H],BL
+HLT
+
+
+
+//SUM OF odd numbers//
+
+MOV SI, 2000H       
+MOV CX, 1000H       
+MOV DI, 4000H
+MOV BL, 0000H
+       
+
+L2:
+    MOV AX, [SI]    
+    TEST AX, 1      
+    JNZ L3          
+    JMP L4          
+
+L3:
+    MOV [DI], AX    
+    INC DI          
+    ADD BL,AL
+
+L4:
+    INC SI          
+    LOOP L2         
+    MOV [5000H],BL
+HLT                
+
