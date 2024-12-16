@@ -1,0 +1,18 @@
+//Metrix addition
+
+MOV SI,0200H
+MOV DI,0300H
+MOV BX,0400H
+MOV CL,04H
+
+L1: MOV AL,[SI]
+    MOV AH,[DI]
+    ADD AL,AH
+    MOV [BX],AL
+    INC SI
+    INC DI
+    INC BX
+    DEC CI
+    JNZ L1
+
+HLT
